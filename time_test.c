@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 #include "computepi.h"
 
 int main(int argc, char const *argv[])
@@ -8,6 +9,10 @@ int main(int argc, char const *argv[])
 
 #if defined(BASELINE)
     pi = compute_pi_baseline(N);
+#endif
+
+#if defined(EULER)
+    pi = compute_pi_euler(N);
 #endif
 
 #if defined(OPENMP_2)

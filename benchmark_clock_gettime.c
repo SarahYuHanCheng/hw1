@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <math.h>
 #include "computepi.h"
 
 #define CLOCK_ID CLOCK_MONOTONIC_RAW
@@ -20,6 +21,17 @@ int main(int argc, char const *argv[])
     clock_gettime(CLOCK_ID, &start);
     for(i = 0; i < loop; i++) {
         compute_pi_baseline(N);
+    }
+
+    clock_gettime(CLOCK_ID, &end);
+    printf("%lf,", (double) (end.tv_sec - start.tv_sec) +
+           (end.tv_nsec - start.tv_nsec)/ONE_SEC);
+
+
+    //Euler 
+    clock_gettime(CLOCK_ID, &start);
+    for(i = 0; i < loop; i++) {
+        compute_pi_euler(N);
     }
     clock_gettime(CLOCK_ID, &end);
     printf("%lf,", (double) (end.tv_sec - start.tv_sec) +
