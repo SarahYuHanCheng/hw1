@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <math.h>
 
 double compute_pi_baseline(size_t N);
 double compute_pi_euler(size_t N);

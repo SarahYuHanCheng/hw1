@@ -21,7 +21,7 @@ default: computepi.o
 
 check: default
 	time ./time_test_baseline
-	time ./time_test_euler -lm
+	time ./time_test_euler 
 	time ./time_test_openmp_2
 	time ./time_test_openmp_4
 	time ./time_test_avx
